@@ -5,17 +5,11 @@
     background-color: rgba(250, 235, 215, 0);
 }
 
-.ship {
-    background: rgb(6, 6, 6);
-    border: 3px solid rgb(193, 12, 12);
-    float: left;
-    font-size: 24px;
-    font-weight: bold;
-    line-height: 34px;
-    height: 25px;
-    margin-right: -1px;
-    margin-top: -1px;
-    padding: 0;
-    text-align: center;
-    width: 25px;
+  .ship {
+    width: 0;
+    height: 0;
+    border: 12px solid transparent;
+    border-top: 0;
+    border-bottom: 25px solid rgba(199, 36, 18, 0.853);
+    position: absolute;
   }
