@@ -3,13 +3,12 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 class Ship extends React.Component{
-    constructor(props){
-        super(props)
-     
+    constructor(){
+        super()    
     }
     render(){
         return(
-            <div> Hello World</div>
+            <div className="ship"></div>
         );
     }
 }
