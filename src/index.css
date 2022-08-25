@@ -1,24 +1,46 @@
-.board {
-    height: 500px;
-    width: 500px;
-    border: 5px solid black;
-    background-color: rgba(250, 235, 215, 0);
+body {
+  background-color: tan;
 }
 
-  .ship {
-    width: 0;
-    height: 0;
-    border: 12px solid transparent;
-    border-top: 0;
-    border-bottom: 25px solid rgba(199, 36, 18, 0.853);
+.board {
+    height: 505px;
+    width: 505px;
+    border: 5px solid black;
+    background-color: rgba(246, 242, 242, 0.887);
+
+}
+
+  .ghost {
+    width: 30px;
+    height: 30px;
     position: absolute;
-    top: 463px;
-    left: 238px;
+    top: 563px;
+    left: 263px;
+    background-image: url("/src/images/ghost.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
   }
 
-  .asteroid {
-    height: 15px;
-    width: 15px;
-    border: 2px solid blue;
+  .pacman {
+    height: 30px;
+    width: 30px;
+    background-image: url("/src/images/pacman.png");
     position: absolute;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: rotate(90deg);
+    animation: down;
+  }
+  @keyframes down {
+    from { transform: translate3d(0, 0, 0);     }
+    to   { transform: translate3d(0, 200px, 0); }
+  }
+
+  button{
+    border-radius: 3px;
+    background-color: rgb(147, 146, 145);
+    margin-bottom: 12px;
+    margin-left: 15px;
   }
