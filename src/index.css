@@ -16,14 +16,14 @@
     height: 505px;
     width: 505px;
     border: 5px solid black;
-    background-color: rgba(246, 242, 242, 0.887);
+    background-color: rgb(249, 247, 247);
   }
 
   .ghost {
     width: 30px;
     height: 30px;
     position: absolute;
-    top: 588px;
+    top: 613px;
     left: 238px;
     background-image: url("/src/images/ghost.png");
     background-size: cover;

@@ -22,6 +22,8 @@ function Login() {
             localStorage.setItem('username', username);
             localStorage.setItem('highscore', response.data.highscore);
         })
+        document.querySelector('.title1').style.display = 'none';
+        document.querySelector('.title2').style.display = 'none';
     }
 
     // creates a new user
@@ -80,10 +82,10 @@ function Login() {
       <div className="app">
         <div className="highscore" >{username ? username : localStorage.getItem('username')} HIGHSCORE: {highscore ? highscore : localStorage.getItem('highscore')}</div>
         <div className="login-form">
-          <div className="title">Sign In</div>
-          {renderForm}
-          <div className="title">Sign Up</div>
-          {renderNewUserForm}
+          <div className="title1">Sign In {renderForm}</div>
+          {/* {renderForm} */}
+          <div className="title2">Sign Up {renderNewUserForm}</div>
+          {/* {renderNewUserForm} */}
         </div>
         <button className="restart" onClick={Restart}>New Game</button>
       </div>

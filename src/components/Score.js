@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { stopped } from './pacman.js'
 import { globalUsername } from './login.js'
 
-console.log("stopped at the top of score", stopped)
 const ScoreTracker = ({isActive}) => {
 
     const [score, setScore] = useState(0);
