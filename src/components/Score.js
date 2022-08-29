@@ -18,13 +18,20 @@ const ScoreTracker = ({isActive}) => {
         return () => clearInterval(interval);
     }, [isActive, score]);
 
-    if(stopped === true) {   
+    if (stopped && globalUsername) {   
         axios.get(`http://localhost:3000/api/players/${globalUsername}`).then((response) =>{
                 if ( score > response.data.highscore) {
                     axios.patch(`http://localhost:3000/api/players/${globalUsername}`, {highscore: score})
                     localStorage.setItem('highscore', score);
             }
         })
+    } else if (stopped && !globalUsername) {
+        axios.get(`http://localhost:3000/api/players/${localStorage.getItem('username')}`).then((response) =>{
+            if ( score > response.data.highscore) {
+                axios.patch(`http://localhost:3000/api/players/${localStorage.getItem('username')}`, {highscore: score})
+                localStorage.setItem('highscore', score);
+        }
+    })
     }
 
     return(<div className="score">Score: {score}</div>)

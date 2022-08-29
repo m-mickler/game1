@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { started, isRunning, createPacman } from "../index.js"
+import sound from './audio/ghost_dies.mp3'
 
 let stopped = false;
 
@@ -17,6 +18,8 @@ const MovePacMan = () => {
         document.querySelector('.pacman').remove();
     }
 
+    let mySound = new Audio(sound);
+
     DeleteGhostOnFail();
 
     function DeleteGhostOnFail() {
@@ -24,8 +27,10 @@ const MovePacMan = () => {
         const el2 = document.querySelector('.pacman');
         
         if (elementsOverlap(el1, el2) === true) {
-            document.querySelector('.ghost').remove();
+            mySound.play()
+            document.querySelector('.ghost').classList.add('blink_me');
             stopped = true;
+            setTimeout(() => {document.querySelector('.ghost').remove();}, 2000)
             Stop();
         }
 

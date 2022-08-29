@@ -17,6 +17,7 @@ function Login() {
     // loads information froma previous user
     function handleSubmit(event) {    
         event.preventDefault();
+
         axios.get(`http://localhost:3000/api/players/${username}`).then((response) =>{
             setHighscore(response.data.highscore)
             localStorage.setItem('username', username);
@@ -63,29 +64,12 @@ function Login() {
         </div>
       );
 
-    //new game button
-    const renderNewGame = (
-      <div className="button">
-        <form onClick={handleSubmit}>
-          <div className="input-container">
-            <label>Username </label>
-            <input type="text" name="uname" value={username} onChange={(e) => setUsername(e.target.value)} required />
-          </div>
-          <div className="button-container">
-            <input type="submit" />
-          </div>
-        </form>
-      </div>
-    );
-    
     return (
       <div className="app">
-        <div className="highscore" >{username ? username : localStorage.getItem('username')} HIGHSCORE: {highscore ? highscore : localStorage.getItem('highscore')}</div>
+        <div className="highscore" >{username ? username : localStorage.getItem('username')} HIGHSCORE: {localStorage.getItem('highscore') ? localStorage.getItem('highscore') : highscore }</div>
         <div className="login-form">
           <div className="title1">Sign In {renderForm}</div>
-          {/* {renderForm} */}
           <div className="title2">Sign Up {renderNewUserForm}</div>
-          {/* {renderNewUserForm} */}
         </div>
         <button className="restart" onClick={Restart}>New Game</button>
       </div>

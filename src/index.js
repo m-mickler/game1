@@ -6,6 +6,7 @@ import { MovePacMan }  from './components/pacman.js';
 import {useState } from 'react';
 import { Login } from './components/login.js';
 import { ScoreTracker } from './components/Score.js';
+import { Instructions } from './components/Instructions.js'
 
 let started = false;
 let isRunning = null;
@@ -15,10 +16,14 @@ function App(){
 
     const [isActive, setIsActive] = useState(false);
 
+    let jump = 35;
+    let speed = 1100;
+    let newPac = 700;
+
     function Start() {
         if (!started) {
-            setTimeout(() => { isRunning = setInterval(function () {MovePacMan();}, 35); return;}, 1100)
-            createPacman = setInterval(PacMan, 700);
+            setTimeout(() => { isRunning = setInterval(() => {MovePacMan();}, jump); return;}, speed)
+            createPacman = setInterval(PacMan, newPac);
             started = true;
             setIsActive(!isActive);
         }
@@ -59,9 +64,11 @@ function App(){
             setIsActive={setIsActive}
             />
             <Login/>
+            <Instructions/>
         </div>
     )
 };
+
 export {started, isRunning, createPacman }
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
